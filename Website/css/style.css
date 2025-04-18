@@ -98,4 +98,64 @@ body {
     background: #111;
     color: #aaa;
   }
-  
+  /* Homepage Hero Section */
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h2 {
+  font-size: 2.2rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Homepage Tiles Section */
+.tiles {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.tile {
+  flex: 1 1 250px;
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: #000;
+}
+
+.tile h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.tile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode Styling for Tiles */
+body.dark-mode .tile {
+  background: #1e1e1e;
+  color: #e1e1e1;
+}
+
+body.dark-mode .tile:hover {
+  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.1);
+}
