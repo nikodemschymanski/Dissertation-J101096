@@ -1,0 +1,101 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  header {
+    background: #005a9c;
+    color: white;
+    padding: 1rem 2rem;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
+  .intro, .charts {
+    padding: 2rem;
+    max-width: 900px;
+    margin: auto;
+  }
+  
+  iframe {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    margin-top: 1rem;
+  }
+  
+  footer {
+    background: #222;
+    color: #ddd;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Toggle Container */
+.theme-toggle {
+    float: right;
+    margin-top: -2.5rem;
+  }
+  
+  .theme-toggle label {
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+    color: white;
+  }
+  
+  /* Styling for Dark theme */
+  body.dark-mode {
+    background: #121212;
+    color: #e1e1e1;
+  }
+  
+  body.dark-mode header {
+    background: #1f1f1f;
+  }
+  
+  body.dark-mode nav a {
+    color: #e1e1e1;
+  }
+  
+  body.dark-mode nav a:hover {
+    text-decoration: underline;
+  }
+  
+  body.dark-mode .intro,
+  body.dark-mode .charts {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  
+  body.dark-mode iframe {
+    border-color: #444;
+  }
+  
+  body.dark-mode footer {
+    background: #111;
+    color: #aaa;
+  }
+  
