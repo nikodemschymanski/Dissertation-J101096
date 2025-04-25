@@ -18,3 +18,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   
+  // Accessibility toggles for mock-browser
+function toggleHighContrast() {
+  document.getElementById("mockBrowser").classList.toggle("high-contrast");
+}
+
+function toggleGrayscale() {
+  document.getElementById("mockBrowser").classList.toggle("grayscale");
+}
+
+function toggleSimplified() {
+  document.getElementById("mockBrowser").classList.toggle("simplified");
+}
+
+function toggleImages() {
+  document.getElementById("mockBrowser").classList.toggle("hide-images");
+}

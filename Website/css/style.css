@@ -105,7 +105,7 @@ body {
   body.dark-mode .theme-toggle label {
     color: #e1e1e1;
   }
-  
+
   body.dark-mode header {
     background: #1f1f1f;
   }
@@ -197,6 +197,100 @@ body.dark-mode .tile {
 
 body.dark-mode .tile:hover {
   box-shadow: 0 8px 30px rgba(255, 255, 255, 0.1);
+}
+
+/* Browse Page Mock browser styling */
+.browse-wrapper {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.tool-panel {
+  flex: 1;
+  min-width: 220px;
+}
+
+.tool-panel h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.tool-panel button {
+  display: block;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.3s;
+}
+
+.tool-panel button:hover {
+  background-color: #ddd;
+}
+
+.mock-browser {
+  flex: 3;
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+  max-width: 800px;
+  min-width: 300px;
+}
+
+.post {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.post-img {
+  width: 120px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.post-content h4 {
+  margin: 0 0 0.3rem;
+}
+
+.post-content p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Accessibility Toggles */
+.mock-browser.high-contrast {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.mock-browser.high-contrast .post-content h4,
+.mock-browser.high-contrast .post-content p {
+  color: #fff !important;
+}
+
+.mock-browser.grayscale {
+  filter: grayscale(100%);
+}
+
+.mock-browser.simplified .post-content h4 {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.mock-browser.simplified .post-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.mock-browser.hide-images img {
+  display: none;
 }
 
 /* Responsive layout */
