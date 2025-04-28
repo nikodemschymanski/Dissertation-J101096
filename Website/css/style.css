@@ -235,6 +235,18 @@ body.dark-mode .mock-browser {
 }
 
 /* Story Bar */
+.stories-title {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+body.dark-mode .stories-title {
+  color: #e4e6eb;
+}
+
 .story-bar {
   display: flex;
   gap: 0.8rem;
@@ -242,6 +254,7 @@ body.dark-mode .mock-browser {
   margin-bottom: 1rem;
   padding-bottom: 0.8rem;
   border-bottom: 1px solid #ddd;
+  margin-top: 0.5rem;
 }
 
 body.dark-mode .story-bar {
@@ -354,6 +367,11 @@ body.dark-mode .sponsored-area {
   color: #e4e6eb;
 }
 
+.mock-browser-wrapper {
+  display: flex;
+  gap: 1rem;
+}
+
 .sponsored-area h4 {
   margin-top: 0;
 }
@@ -406,7 +424,83 @@ body.dark-mode .sponsored-area {
   display: none;
 }
 
+/* Simulation Page Styles */
+.simulation-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+body.dark-mode .simulation-container {
+  background: #242526;
+  color: #e4e6eb;
+}
+
+.simulation-area {
+  width: 100%;
+  height: 400px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666;
+  padding: 1rem;
+}
+
+body.dark-mode .simulation-area {
+  border-color: #444;
+  color: #ccc;
+}
+
+.simulation-controls button {
+  padding: 0.6rem 1rem;
+  margin: 0.3rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.btn-home { background-color: #1877f2; }
+.btn-start { background-color: #4CAF50; }
+.btn-pause { background-color: #FFC107; color: #111; }
+.btn-stop { background-color: #F44336; }
+
+.distraction {
+  position: absolute;
+  background-color: rgba(255, 0, 0, 0.8);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  animation: fadeInOut 5s ease-in-out;
+  font-size: 0.9rem;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; transform: translateY(-20px); }
+  10%, 90% { opacity: 1; transform: translateY(0); }
+}
+
 /* Responsive layout */
+@media (max-width: 900px) {
+  .mock-browser-wrapper {
+    flex-direction: column;
+  }
+
+  .sponsored-area {
+    margin-top: 1rem;
+  }
+}
+
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;

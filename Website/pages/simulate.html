@@ -25,8 +25,24 @@
   </header>
 
   <main class="intro">
-    <h2>This is the Simulation Page</h2>
-    <p>Placeholder content for simulations or interaction demos.</p>
+    <div class="simulation-container">
+      <h2>Experience ADHD Simulation</h2>
+
+      <div id="simulationArea" class="simulation-area">
+        Click "Start Simulation" to experience browsing distractions.
+      </div>
+
+      <p>
+        Experience a simulation of web browsing from the perspective of ADHD users, understanding common accessibility challenges.
+      </p>
+
+      <div class="simulation-controls">
+        <button class="btn-home" onclick="location.href='/Website/pages/index.html'">Home</button>
+        <button class="btn-start" onclick="startSimulation()">Start Simulation</button>
+        <button class="btn-pause" onclick="pauseSimulation()">Pause Simulation</button>
+        <button class="btn-stop" onclick="stopSimulation()">Stop Simulation</button>
+      </div>
+    </div>
   </main>
 
   <footer>
