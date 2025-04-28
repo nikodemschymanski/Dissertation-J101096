@@ -36,6 +36,7 @@ function toggleImages() {
 }
 
 // ADHD Distraction Simulation Logic
+let difficulty = 'moderate'; // Default difficulty
 let distractionInterval;
 let isSimulationActive = false;
 
@@ -60,20 +61,52 @@ function generateDistraction() {
   setTimeout(() => distraction.remove(), 5000);
 }
 
+
+function setDifficulty(level) {
+  difficulty = level;
+  stopSimulation();
+
+  // This updates the button active state
+  const difficultyButtons = document.querySelectorAll('.difficulty-buttons button');
+  difficultyButtons.forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  // This adds an active class to the clicked button
+  const selectedButton = document.querySelector(`.difficulty-buttons button[data-level="${level}"]`);
+  if (selectedButton) {
+    selectedButton.classList.add('active');
+  }
+}
+
 function startSimulation() {
   if (isSimulationActive) return;
   isSimulationActive = true;
-  distractionInterval = setInterval(generateDistraction, 3000);
+
+  const simArea = document.getElementById("simulationArea");
+  simArea.textContent = "";
+
+  let intervalSpeed = 2000; // Default moderate
+  if (difficulty === 'mild') intervalSpeed = 3000;
+  if (difficulty === 'intense') intervalSpeed = 1000;
+  
+  distractionInterval = setInterval(generateDistraction, intervalSpeed);
 }
 
 function pauseSimulation() {
   clearInterval(distractionInterval);
   isSimulationActive = false;
+
+  const simArea = document.getElementById("simulationArea");
+  if (!simArea.querySelector('.distraction')) {
+    simArea.textContent = 'Click "Start Simulation" to experience browsing distractions.';
+}
 }
 
 function stopSimulation() {
   clearInterval(distractionInterval);
   isSimulationActive = false;
+
   const simArea = document.getElementById("simulationArea");
-  simArea.innerHTML = "Simulation stopped. Click 'Start Simulation' to resume.";
+  simArea.innerHTML = 'Click "Start Simulation" to experience browsing distractions.';
 }
