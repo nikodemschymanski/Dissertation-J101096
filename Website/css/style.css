@@ -483,6 +483,7 @@ body.dark-mode .simulation-area {
   border-radius: 6px;
   animation: moveDistraction 5s ease-in-out;
   font-size: 0.9rem;
+  z-index: 1;
 }
 
 @keyframes moveDistraction {
@@ -493,7 +494,21 @@ body.dark-mode .simulation-area {
   100% { opacity: 0; transform: translateY(-20px) translateX(0); }
 }
 
-* Difficulty Buttons */
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-5px, 5px); }
+  40% { transform: translate(5px, -5px); }
+  60% { transform: translate(-5px, 5px); }
+  80% { transform: translate(5px, -5px); }
+  100% { transform: translate(0, 0); }
+}
+
+.distraction.shake {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite; 
+}
+
+/* Difficulty Buttons */
 .difficulty-buttons {
   margin-top: 1rem;
 }
@@ -535,6 +550,62 @@ body.dark-mode .difficulty-buttons button.active {
   background-color: #4CAF50;
   color: white;
   border: 1px solid #4CAF50;
+}
+
+/* Background for simulation */
+
+.background-bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0; 
+  pointer-events: none;
+}
+
+.bubble {
+  position: absolute;
+  background: rgba(0, 123, 255, 0.15);
+  border-radius: 50%;
+  animation: floatBubble linear infinite;
+}
+
+.background-bubbles::before, .background-bubbles::after {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: rgba(0, 123, 255, 0.1);
+  border-radius: 50%;
+  animation: floatBubbles 30s infinite;
+}
+
+.background-bubbles::after {
+  width: 100px;
+  height: 100px;
+  background: rgba(0, 123, 255, 0.05);
+  top: 50%;
+  left: 50%;
+  animation-delay: 15s;
+}
+
+@keyframes floatBubble {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes floatBubbles {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(20px, -20px); }
+  100% { transform: translate(0, 0); }
 }
 
 /* Responsive layout */
