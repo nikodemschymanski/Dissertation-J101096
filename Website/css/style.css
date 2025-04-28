@@ -85,7 +85,7 @@ body {
   }
   
   /* Toggle Container */
-.theme-toggle {
+  .theme-toggle {
     float: right;
     margin-top: -2.5rem;
   }
@@ -200,68 +200,79 @@ body.dark-mode .tile:hover {
 }
 
 /* Browse Page Mock browser styling */
-.browse-wrapper {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-}
-
-.tool-panel {
-  flex: 1;
-  min-width: 220px;
-}
-
-.tool-panel h3 {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-}
-
-.tool-panel button {
-  display: block;
-  margin-bottom: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: #eee;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.95rem;
-  transition: background-color 0.3s;
-}
-
-.tool-panel button:hover {
-  background-color: #ddd;
-}
-
 .mock-browser {
-  flex: 3;
-  background: #fff;
+  max-width: 800px;
+  background-color: #f0f2f5;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .mock-browser {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Story Bar */
+.story-bar {
+  display: flex;
+  gap: 0.8rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.story {
+  flex: 0 0 auto;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.story img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #1877f2;
+}
+
+.story span {
+  display: block;
+  margin-top: 0.3rem;
+}
+
+/* Posts */
+.post {
+  background: #ffffff;
   border-radius: 8px;
   padding: 1rem;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
-  max-width: 800px;
-  min-width: 300px;
-}
-
-.post {
   display: flex;
   gap: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  align-items: center;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.post.sponsored {
+  border-left: 4px solid #1877f2;
 }
 
 .post-img {
-  width: 120px;
-  height: auto;
+  width: 80px;
+  height: 80px;
   border-radius: 8px;
+  object-fit: cover;
 }
 
 .post-content h4 {
-  margin: 0 0 0.3rem;
+  margin: 0;
+  font-size: 1rem;
+  color: #050505;
 }
 
 .post-content p {
-  margin: 0;
-  font-size: 0.95rem;
+  margin: 0.3rem 0 0;
+  color: #65676b;
+  font-size: 0.9rem;
 }
 
 /* Accessibility Toggles */
