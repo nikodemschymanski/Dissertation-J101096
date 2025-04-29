@@ -31,29 +31,12 @@
     <div class="browse-wrapper">
       <div class="tool-panel">
         <h3>Accessibility Tools</h3>
-        <button onclick="toggleHighContrast()" aria-describedby="hcDesc hcStatus">
-          Toggle High Contrast
-        </button>
-        <button onclick="toggleGrayscale()" aria-describedby="gsDesc gsStatus">
-          Toggle Grayscale
-        </button>
-        <button onclick="toggleSimplified()" aria-describedby="sfDesc sfStatus">
-          Toggle Simplified View
-        </button>
-        <button onclick="toggleImages()" aria-describedby="imgDesc imgStatus">
-          Toggle Images
-        </button>
-
-        <!-- Dynamic Caption Area -->
-         <div id="accessibilityCaption" class="accessibility-caption" role="status" aria-live="polite">
-        </div>
-        <!-- Status Messages -->
-         <div class="status-area">
-          <p id="hcStatus">High Contrast Mode: Off</p>
-          <p id="gsStatus">Grayscale Mode: Off</p>
-          <p id="sfStatus">Simplified View: Off</p>
-          <p id="imgStatus">Images: On</p>
-        </div>
+        <ul class="tool-list">
+          <button id="hcButton" onclick="toggleHighContrast()"><span>High Contrast: Off</span></button>
+          <button id="gsButton" onclick="toggleGrayscale()"><span>Grayscale: Off</span></button>
+          <button id="sfButton" onclick="toggleSimplified()"><span>Simplified View: Off</span></button>
+          <button id="imgButton" onclick="toggleImages()"><span>Images: On</span></button>
+        </ul>
         
         <!-- Hidden Descriptions for Screen Readers -->
          <div style="display:none;">

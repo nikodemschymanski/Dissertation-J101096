@@ -448,26 +448,19 @@ body.dark-mode .sponsored-area {
   display: none;
 }
 
-/* Accessibility tool text styling */
-
-.accessibility-caption {
-  margin-top: 1rem;
-  font-style: italic;
-  color: #555;
+.tool-list button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.status-area p {
-  margin: 0.2rem 0;
-  font-size: 0.85rem;
-  color: #333;
+.tool-list button::before {
+  content: "\1F534"; 
+  font-size: 1rem;
 }
 
-body.dark-mode .accessibility-caption {
-  color: #ccc;
-}
-
-body.dark-mode .status-area p {
-  color: #bbb;
+.tool-list button.active::before {
+  content: "\1F7E2"; 
 }
 
 /* Simulation Page Styles */

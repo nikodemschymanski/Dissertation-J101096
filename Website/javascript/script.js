@@ -19,35 +19,48 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
   // Accessibility toggles for mock-browser
-  function updateCaptionAndStatus(feature, isOn, captionText) {
-    const caption = document.getElementById("accessibilityCaption");
-    const status = document.getElementById(`${feature}Status`);
-    if (caption) caption.textContent = captionText;
-    if (status) status.textContent = `${captionText.split(":")[0]}: ${isOn ? "On" : "Off"}`;
-  }
   
-  function toggleHighContrast() {
+  function toggleFeature({ featureClass, buttonId, label, invert = false }) {
     const browser = document.getElementById("mockBrowser");
-    const isOn = browser.classList.toggle("high-contrast");
-    updateCaptionAndStatus("hc", isOn, "High Contrast Mode: Improves visibility with strong colour contrast");
+    const button = document.getElementById(buttonId);
+    const span = button.querySelector("span");
+  
+    const isOn = invert ? !browser.classList.toggle(featureClass) : browser.classList.toggle(featureClass);
+    span.textContent = `${label}: ${isOn ? "On" : "Off"}`;
+    button.classList.toggle("active", isOn);
+  }
+
+  function toggleHighContrast() {
+    toggleFeature({
+      featureClass: "high-contrast",
+      buttonId: "hcButton",
+      label: "High Contrast"
+    });
   }
   
   function toggleGrayscale() {
-    const browser = document.getElementById("mockBrowser");
-    const isOn = browser.classList.toggle("grayscale");
-    updateCaptionAndStatus("gs", isOn, "Grayscale Mode: Removes colours to reduce sensory overload");
+    toggleFeature({
+      featureClass: "grayscale",
+      buttonId: "gsButton",
+      label: "Grayscale"
+    });
   }
   
   function toggleSimplified() {
-    const browser = document.getElementById("mockBrowser");
-    const isOn = browser.classList.toggle("simplified");
-    updateCaptionAndStatus("sf", isOn, "Simplified View: Enlarges text and simplifies layout for better readability");
+    toggleFeature({
+      featureClass: "simplified",
+      buttonId: "sfButton",
+      label: "Simplified View"
+    });
   }
   
   function toggleImages() {
-    const browser = document.getElementById("mockBrowser");
-    const isOn = !browser.classList.toggle("hide-images"); 
-    updateCaptionAndStatus("img", isOn, "Images: " + (isOn ? "Visible for standard view" : "Hidden to reduce distractions"));
+    toggleFeature({
+      featureClass: "hide-images",
+      buttonId: "imgButton",
+      label: "Images",
+      invert: true 
+    });
   }
 
 // ADHD Distraction Simulation Logic
