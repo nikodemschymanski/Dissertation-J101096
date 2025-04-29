@@ -31,6 +31,7 @@
       <div id="simulationArea" class="simulation-area">
         <div class="background-bubbles"></div>
         <div id="infoText">Click "Start Simulation" to experience browsing distractions.</div>
+        <div id="pausedOverlay" class="paused-overlay" style="display: none;">Paused</div>
       </div>
         
 
@@ -41,7 +42,7 @@
       <div class="simulation-controls">
         <button class="btn-home" onclick="location.href='/Website/pages/index.html'">Home</button>
         <button class="btn-start" onclick="startSimulation()">Start Simulation</button>
-        <button class="btn-pause" onclick="pauseSimulation()">Pause Simulation</button>
+        <button class="btn-pause" onclick="togglePauseSimulation()">Pause Simulation</button>
         <button class="btn-stop" onclick="stopSimulation()">Stop Simulation</button>
         
         <div class="difficulty-buttons">

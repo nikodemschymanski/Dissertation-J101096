@@ -96,12 +96,30 @@ function startSimulation() {
   paused = false;
 
   const simArea = document.getElementById("simulationArea");
-  const children = Array.from(simArea.childNodes);
-  children.forEach(child => {
-  if (child.nodeType === Node.TEXT_NODE || (child.nodeType === Node.ELEMENT_NODE && !child.classList.contains('background-bubbles'))) {
-    child.remove();
+
+  // Only remove distractions, not overlays or info text
+  const distractionsOnScreen = simArea.querySelectorAll('.distraction');
+  distractionsOnScreen.forEach(d => d.remove());
+
+  const infoText = document.getElementById("infoText");
+  if (infoText) {
+    infoText.style.display = 'none';
   }
-});
+
+  const pausedOverlay = document.getElementById("pausedOverlay");
+  if (pausedOverlay) {
+    pausedOverlay.style.display = 'none';
+  }
+
+  const pauseButton = document.querySelector('.btn-pause');
+  if (pauseButton) {
+    pauseButton.textContent = "Pause Simulation";
+  }
+
+  const bubbles = document.querySelectorAll('.bubble');
+  bubbles.forEach(bubble => {
+    bubble.style.animationPlayState = 'running';
+  });
 
   let intervalSpeed = 2000; // Default moderate
   if (difficulty === 'mild') intervalSpeed = 3000;
@@ -110,7 +128,18 @@ function startSimulation() {
   distractionInterval = setInterval(generateDistraction, intervalSpeed);
 }
 
-function pauseSimulation() {
+function togglePauseSimulation() {
+  const pausedOverlay = document.getElementById("pausedOverlay");
+  const pauseButton = document.querySelector('.btn-pause');
+  const simArea = document.getElementById("simulationArea");
+  const infoText = document.getElementById("infoText");
+
+  if (!isSimulationActive && !paused) {
+    return;
+  }
+
+  if (!paused) {
+  // Currently running to Pause
   clearInterval(distractionInterval);
   isSimulationActive = false;
   paused = true;
@@ -119,13 +148,53 @@ function pauseSimulation() {
   const distractionsOnScreen = document.querySelectorAll('.distraction');
   distractionsOnScreen.forEach(el => {
     el.style.animationPlayState = 'paused';
-});
+  });
 
-const simArea = document.getElementById("simulationArea");
-const infoText = document.getElementById("infoText");
+  // This pauses the bubbles
+  const bubbles = document.querySelectorAll('.bubble');
+  bubbles.forEach(bubble => {
+    bubble.style.animationPlayState = 'paused';
+  });
 
-if (simArea.querySelectorAll('.distraction').length === 0 && infoText) {
-  infoText.style.display = 'block';
+  if (pausedOverlay) {
+    pausedOverlay.style.display = 'block';
+  }
+
+  if (pauseButton) {
+    pauseButton.textContent = "Resume Simulation";
+  }
+
+  if (simArea.querySelectorAll('.distraction').length === 0 && infoText) {
+    infoText.style.display = 'block';
+  }
+} else {
+  // Currently paused to Unpause
+  paused = false;
+  isSimulationActive = true;
+
+  const distractionsOnScreen = document.querySelectorAll('.distraction');
+  distractionsOnScreen.forEach(el => {
+    el.style.animationPlayState = 'running';
+  });
+
+  const bubbles = document.querySelectorAll('.bubble');
+  bubbles.forEach(bubble => {
+    bubble.style.animationPlayState = 'running';
+  });
+
+  if (pausedOverlay) {
+    pausedOverlay.style.display = 'none';
+  }
+
+  if (pauseButton) {
+    pauseButton.textContent = "Pause Simulation";
+  }
+
+  let intervalSpeed = 2000;
+  if (difficulty === 'mild') intervalSpeed = 3000;
+  if (difficulty === 'intense') intervalSpeed = 1000;
+
+  distractionInterval = setInterval(generateDistraction, intervalSpeed);
 }
 }
 
@@ -142,6 +211,15 @@ function stopSimulation() {
   if (infoText) {
     infoText.style.display = 'block';
   }
+
+  const pausedOverlay = document.getElementById("pausedOverlay");
+  if (pausedOverlay) {
+  pausedOverlay.style.display = 'none';
+}
+  const pauseButton = document.querySelector('.btn-pause');
+    if (pauseButton) {
+      pauseButton.textContent = "Pause Simulation";
+}
 }
 
 // This generates multiple floating bubbles
