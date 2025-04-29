@@ -401,8 +401,32 @@ body.dark-mode .sponsored-area {
   color: #fff !important;
 }
 
+/* This keeps ALL child text elements visible in high contrast */
 .mock-browser.high-contrast .post-content h4,
-.mock-browser.high-contrast .post-content p {
+.mock-browser.high-contrast .post-content p,
+.mock-browser.high-contrast .story span,
+.mock-browser.high-contrast .stories-title,
+.mock-browser.high-contrast .browser-top-nav a,
+.mock-browser.high-contrast .sponsored-post p,
+.mock-browser.high-contrast .sponsored-area h4,
+.mock-browser.high-contrast .new-post input,
+.mock-browser.high-contrast .new-post button {
+  color: #ffffff !important;
+}
+
+/* This adds backgrounds to distinguish post blocks in high contrast */
+.mock-browser.high-contrast .post,
+.mock-browser.high-contrast .sponsored-area {
+  background-color: #111 !important;
+}
+
+.mock-browser.high-contrast .new-post input {
+  background-color: #000 !important;
+  border: 1px solid #fff !important;
+}
+
+.mock-browser.high-contrast .new-post button {
+  background-color: #222 !important;
   color: #fff !important;
 }
 
@@ -422,6 +446,28 @@ body.dark-mode .sponsored-area {
 
 .mock-browser.hide-images img {
   display: none;
+}
+
+/* Accessibility tool text styling */
+
+.accessibility-caption {
+  margin-top: 1rem;
+  font-style: italic;
+  color: #555;
+}
+
+.status-area p {
+  margin: 0.2rem 0;
+  font-size: 0.85rem;
+  color: #333;
+}
+
+body.dark-mode .accessibility-caption {
+  color: #ccc;
+}
+
+body.dark-mode .status-area p {
+  color: #bbb;
 }
 
 /* Simulation Page Styles */

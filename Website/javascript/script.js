@@ -19,21 +19,36 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
   // Accessibility toggles for mock-browser
-function toggleHighContrast() {
-  document.getElementById("mockBrowser").classList.toggle("high-contrast");
-}
-
-function toggleGrayscale() {
-  document.getElementById("mockBrowser").classList.toggle("grayscale");
-}
-
-function toggleSimplified() {
-  document.getElementById("mockBrowser").classList.toggle("simplified");
-}
-
-function toggleImages() {
-  document.getElementById("mockBrowser").classList.toggle("hide-images");
-}
+  function updateCaptionAndStatus(feature, isOn, captionText) {
+    const caption = document.getElementById("accessibilityCaption");
+    const status = document.getElementById(`${feature}Status`);
+    if (caption) caption.textContent = captionText;
+    if (status) status.textContent = `${captionText.split(":")[0]}: ${isOn ? "On" : "Off"}`;
+  }
+  
+  function toggleHighContrast() {
+    const browser = document.getElementById("mockBrowser");
+    const isOn = browser.classList.toggle("high-contrast");
+    updateCaptionAndStatus("hc", isOn, "High Contrast Mode: Improves visibility with strong colour contrast");
+  }
+  
+  function toggleGrayscale() {
+    const browser = document.getElementById("mockBrowser");
+    const isOn = browser.classList.toggle("grayscale");
+    updateCaptionAndStatus("gs", isOn, "Grayscale Mode: Removes colours to reduce sensory overload");
+  }
+  
+  function toggleSimplified() {
+    const browser = document.getElementById("mockBrowser");
+    const isOn = browser.classList.toggle("simplified");
+    updateCaptionAndStatus("sf", isOn, "Simplified View: Enlarges text and simplifies layout for better readability");
+  }
+  
+  function toggleImages() {
+    const browser = document.getElementById("mockBrowser");
+    const isOn = !browser.classList.toggle("hide-images"); 
+    updateCaptionAndStatus("img", isOn, "Images: " + (isOn ? "Visible for standard view" : "Hidden to reduce distractions"));
+  }
 
 // ADHD Distraction Simulation Logic
 let difficulty = 'moderate'; // Default difficulty

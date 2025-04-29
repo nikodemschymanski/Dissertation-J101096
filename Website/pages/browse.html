@@ -31,14 +31,41 @@
     <div class="browse-wrapper">
       <div class="tool-panel">
         <h3>Accessibility Tools</h3>
-        <button onclick="toggleHighContrast()">Toggle High Contrast</button>
-        <button onclick="toggleGrayscale()">Toggle Grayscale</button>
-        <button onclick="toggleSimplified()">Toggle Simplified View</button>
-        <button onclick="toggleImages()">Toggle Images</button>
+        <button onclick="toggleHighContrast()" aria-describedby="hcDesc hcStatus">
+          Toggle High Contrast
+        </button>
+        <button onclick="toggleGrayscale()" aria-describedby="gsDesc gsStatus">
+          Toggle Grayscale
+        </button>
+        <button onclick="toggleSimplified()" aria-describedby="sfDesc sfStatus">
+          Toggle Simplified View
+        </button>
+        <button onclick="toggleImages()" aria-describedby="imgDesc imgStatus">
+          Toggle Images
+        </button>
+
+        <!-- Dynamic Caption Area -->
+         <div id="accessibilityCaption" class="accessibility-caption" role="status" aria-live="polite">
+        </div>
+        <!-- Status Messages -->
+         <div class="status-area">
+          <p id="hcStatus">High Contrast Mode: Off</p>
+          <p id="gsStatus">Grayscale Mode: Off</p>
+          <p id="sfStatus">Simplified View: Off</p>
+          <p id="imgStatus">Images: On</p>
+        </div>
+        
+        <!-- Hidden Descriptions for Screen Readers -->
+         <div style="display:none;">
+          <span id="hcDesc">Toggles high contrast colours.</span>
+          <span id="gsDesc">Toggles grayscale colour mode.</span>
+          <span id="sfDesc">Simplifies the font and layout.</span>
+          <span id="imgDesc">Hides or shows images.</span>
+        </div>
       </div>
-    
-      <div id="mockBrowser" class="mock-browser">
-  
+
+        <div id="mockBrowser" class="mock-browser">
+
         <!-- Top-right navigation tabs -->
         <div class="browser-top-nav">
           <a href="#">Account</a>
