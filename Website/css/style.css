@@ -452,15 +452,28 @@ body.dark-mode .sponsored-area {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.tool-list button:hover {
+  background: #e0e0e0;
+  border-color: #888;
 }
 
 .tool-list button::before {
   content: "\1F534"; 
   font-size: 1rem;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .tool-list button.active::before {
   content: "\1F7E2"; 
+  transform: scale(1.2);
 }
 
 /* Simulation Page Styles */
@@ -698,5 +711,11 @@ body.dark-mode .difficulty-buttons button.active {
 
   iframe {
     height: 700px;
+  }
+}
+
+@media (max-width: 600px) {
+  .simulation-area {
+    height: 300px;
   }
 }

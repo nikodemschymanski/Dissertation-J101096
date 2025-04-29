@@ -32,10 +32,10 @@
       <div class="tool-panel">
         <h3>Accessibility Tools</h3>
         <ul class="tool-list">
-          <button id="hcButton" onclick="toggleHighContrast()"><span>High Contrast: Off</span></button>
-          <button id="gsButton" onclick="toggleGrayscale()"><span>Grayscale: Off</span></button>
-          <button id="sfButton" onclick="toggleSimplified()"><span>Simplified View: Off</span></button>
-          <button id="imgButton" onclick="toggleImages()"><span>Images: On</span></button>
+          <li><button id="hcButton" onclick="toggleHighContrast()" aria-describedby="hcDesc"><span>High Contrast: Off</span></button></li>
+          <li><button id="gsButton" onclick="toggleGrayscale()" aria-describedby="gsDesc"><span>Grayscale: Off</span></button></li>
+          <li><button id="sfButton" onclick="toggleSimplified()" aria-describedby="sfDesc"><span>Simplified View: Off</span></button></li>
+          <li><button id="imgButton" onclick="toggleImages()" aria-describedby="imgDesc"><span>Images: On</span></button></li>
         </ul>
         
         <!-- Hidden Descriptions for Screen Readers -->
