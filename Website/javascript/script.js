@@ -16,7 +16,32 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("theme", "light");
       }
     });
+
+    const toggles = [
+      { id: "hcButton", className: "high-contrast", label: "High Contrast" },
+      { id: "gsButton", className: "grayscale", label: "Grayscale" },
+      { id: "sfButton", className: "simplified", label: "Simplified View" },
+      { id: "imgButton", className: "hide-images", label: "Images", invert: true }
+    ];
+  
+    const browser = document.getElementById("mockBrowser");
+  
+    toggles.forEach(({ id, className, label, invert }) => {
+      const button = document.getElementById(id);
+      const span = button.querySelector("span");
+      const isOn = invert ? !browser.classList.contains(className) : browser.classList.contains(className);
+  
+      if (isOn) {
+        button.classList.add("active");
+      } else {
+        button.classList.remove("active");
+      }
+  
+      span.textContent = `${label}: ${isOn ? "On" : "Off"}`;
+    });
   });
+
+  
   
   // Accessibility toggles for mock-browser
   
