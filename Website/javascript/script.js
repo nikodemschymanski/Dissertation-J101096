@@ -41,7 +41,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  
+  // Back to Top Button
+window.addEventListener("scroll", () => {
+  const topBtn = document.getElementById("backToTop");
+  if (topBtn) {
+    topBtn.style.display = window.scrollY > 400 ? "block" : "none";
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const topBtn = document.getElementById("backToTop");
+  if (topBtn) {
+    topBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+});
   
   // Accessibility toggles for mock-browser
   

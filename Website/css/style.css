@@ -99,7 +99,18 @@ body {
   /* Styling for Dark theme */
   body.dark-mode {
     background: #121212;
-    color: #e1e1e1;
+    color: #e4e4e4;
+  }
+
+  body.dark-mode a {
+    color: #90caf9; 
+  }
+  
+  body.dark-mode .btn-start,
+  body.dark-mode .btn-home,
+  body.dark-mode .btn-stop,
+  body.dark-mode .btn-pause {
+    color: #111; 
   }
 
   body.dark-mode .theme-toggle label {
@@ -685,6 +696,34 @@ body.dark-mode .difficulty-buttons button.active {
   0% { transform: translate(0, 0); }
   50% { transform: translate(20px, -20px); }
   100% { transform: translate(0, 0); }
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #1877f2;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  display: none;
+  z-index: 1000;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.back-to-top:hover {
+  background-color: #0f5ec7;
+}
+
+/* Accessible focus outline for keyboard navigation */
+a:focus,
+button:focus,
+input:focus {
+  outline: 3px solid #00bcd4;
+  outline-offset: 2px;
 }
 
 /* Responsive layout */

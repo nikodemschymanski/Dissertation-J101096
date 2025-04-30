@@ -9,7 +9,7 @@
 <body>
   <header>
     <h1>Exploring Accessible Web Design</h1>
-    <div class="theme-toggle">
+    <div class="theme-toggle" role="group" aria-label="Theme Toggle">
       <label for="toggle-switch">Dark Mode:</label>
       <input type="checkbox" id="toggle-switch" />
     </div>
@@ -25,8 +25,8 @@
   </header>
 
   <main class="intro">
-    <h2>This is the Educate Page</h2>
-    <p>Interactive charts and WCAG insights will be placed here.</p>
+    <h2>Learn Through Data and Accessibility Insights</h2>
+    <p>Explore real survey data from neurodivergent users and discover how their experiences relate to WCAG 2.2 guidelines. Use the interactive charts below to deepen your understanding of inclusive web design.</p>
     <div style="display: flex; justify-content: center;">
       <div style="background-color: white; border-radius: 8px; padding: 1rem; width: 100%; max-width: 1400px;">
         <iframe 
@@ -36,7 +36,25 @@
           loading="lazy">
         </iframe>
       </div>
-    </div>     
+    </div>
+    <h3>Key Accessibility Findings</h3>
+<p>
+  The interactive dashboard above presents visual insights from a survey focused on digital accessibility challenges experienced by neurodivergent users. Below is a summary of the main findings drawn from both quantitative and qualitative data:
+</p>
+
+<ul>
+  <li><strong>Daily Usage:</strong> All participants reported using websites or applications daily, emphasising the importance of inclusive design in everyday digital environments.</li>
+  <li><strong>Common Barriers:</strong> Major challenges included cluttered layouts, excessive animations, inconsistent navigation, and overwhelming menus - all of which increase cognitive load.</li>
+  <li><strong>Assistive Technology:</strong> Most participants did not use assistive tools like screen readers, suggesting a mismatch between conventional aids and neurodivergent needs.</li>
+  <li><strong>Customisation Desires:</strong> There was strong interest in simple personalisation options such as dark mode, larger fonts, and content simplification - features often missing from mainstream platforms.</li>
+  <li><strong>Textual Insights:</strong> Word clouds revealed a preference for clarity, ease of use, and familiarity. Words like <em>easy</em>, <em>use</em>, and <em>clear</em> were prominent, reflecting a desire for intuitive and low-effort experiences.</li>
+  <li><strong>Awareness & Frustration:</strong> Participants expressed frustration with misconceptions about autism and ADHD, particularly regarding invisible symptoms and inconsistent support.</li>
+</ul>
+
+<p>
+  These insights directly informed the accessibility features demonstrated throughout this site and were mapped against WCAG 2.1/2.2 standards to ensure relevance and alignment with best practices.
+</p> 
+<button id="backToTop" class="back-to-top" aria-label="Back to top">↑ Top</button>    
   </main>
 
   <footer>
