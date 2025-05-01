@@ -516,6 +516,7 @@ body.dark-mode .simulation-container {
   align-items: center;
   color: #666;
   padding: 1rem;
+  box-sizing: border-box;
 }
 
 body.dark-mode .simulation-area {
@@ -741,20 +742,34 @@ input:focus {
   nav ul {
     flex-direction: column;
     gap: 1rem;
+    padding-left: 0;
+    width: 100%;
   }
 
   header {
     flex-direction: column;
     align-items: flex-start;
+    gap: 1rem;
   }
 
   iframe {
     height: 700px;
   }
+
+  .theme-toggle {
+    margin-top: 1rem; 
+    align-self: flex-end;
+  }
 }
 
+
 @media (max-width: 600px) {
+  .simulation-container {
+    padding: 1rem; 
+  }
+
   .simulation-area {
     height: 300px;
+    padding: 0.5rem; 
   }
 }
