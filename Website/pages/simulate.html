@@ -41,15 +41,18 @@
 
       <div class="simulation-controls">
         <button class="btn-home" onclick="location.href='/Website/pages/index.html'">Home</button>
-        <button class="btn-start" onclick="startSimulation()">Start Simulation</button>
-        <button class="btn-pause" onclick="togglePauseSimulation()">Pause Simulation</button>
-        <button class="btn-stop" onclick="stopSimulation()">Stop Simulation</button>
+        <button class="btn-start" aria-label="Start ADHD simulation" onclick="startSimulation()">Start Simulation</button>
+        <button class="btn-pause" aria-label="Pause or resume ADHD simulation" onclick="togglePauseSimulation()">Pause Simulation</button>
+        <button class="btn-stop" aria-label="Stop ADHD simulation" onclick="stopSimulation()">Stop Simulation</button>
         
-        <div class="difficulty-buttons">
-          <button data-level="mild" onclick="setDifficulty('mild')">Mild</button>
-          <button data-level="moderate" onclick="setDifficulty('moderate')">Moderate</button>
-          <button data-level="intense" onclick="setDifficulty('intense')">Intense</button>
-        </div>
+        <fieldset>
+          <legend>Choose distraction intensity</legend>
+          <div class="difficulty-buttons">
+            <button data-level="mild" onclick="setDifficulty('mild')">Mild</button>
+            <button data-level="moderate" onclick="setDifficulty('moderate')">Moderate</button>
+            <button data-level="intense" onclick="setDifficulty('intense')">Intense</button>
+          </div>
+        </fieldset>
     </div>
   </main>
 
