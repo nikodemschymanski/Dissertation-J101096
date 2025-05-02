@@ -1,3 +1,13 @@
+@media (prefers-reduced-motion: no-preference) {
+  *,
+  *::before,
+  *::after {
+    transition: background-color 0.35s ease,
+                color            0.35s ease,
+                border-color     0.35s ease;
+  }
+}
+
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0;
